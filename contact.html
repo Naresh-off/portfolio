@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: white;
+            margin: auto;
+        }
+
+        .contact-container {
+            width: 50%;
+            padding: 1px;
+            background: rgba(9, 7, 5, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .image {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h2 {
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+
+        .input-field {
+            margin-bottom: 40px;
+        }
+
+        .input-field input {
+            background: none;
+            border: none;
+            border-bottom: 2px solid white;
+            color: white;
+            width: 100%;
+            padding: 10px 0;
+            font-size: 15px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .input-field input:focus {
+            outline: none;
+            border-bottom: 2px solid #deb887;
+        }
+
+        input::placeholder {
+            color: white;
+        }
+
+        button {
+            background-color: #000000;
+            color: white;
+            padding: 10px 0px;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 150px;
+            margin-top: 30px;
+            align-items: center;
+        }
+
+        button:hover {
+            background-color: #510202;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #fcf7f7;
+        }
+
+        .contact-info a {
+            display: block;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fcf7f7;
+            font-weight: 500;
+            margin-bottom: 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #fcf7f7;
+            transform: scale(1.05);
+        }
+
+        .contact-info a.phone-link:before {
+            content: '📞 ';
+        }
+
+        .contact-info a.email-link:before {
+            content: '✉️ ';
+        }
+
+        .contact-info p.name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #fcf7f7;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <h2>Let's Talk</h2>
+        <form id="contactForm">
+            <div class="input-field">
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="input-field">
+                <input type="email" id="email" name="email" placeholder="Your email" required>
+            </div>
+            <div class="input-field">
+                <input type="text" id="message" name="message" placeholder="Your message" required>
+            </div>
+            <button type="submit">SEND</button>
+        </form>
+        <div class="contact-info">
+            <p class="name">Naresh G</p>
+            <a href="tel:+919486478955" class="phone-link">+91 9486478955</a>
+            <a href="mailto:smilekiller107@gmail.com" class="email-link">smilekiller107@gmail.com</a>
+        </div>
+    </div>
+
+    <div class="image">
+        <img src="images\1727951681060 - Copy1.jpg" alt="Background Image">
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the default way
+
+            // Get the values from the form
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Send the email
+            sendEmail(name, email, message);
+
+            // Send WhatsApp message
+            sendWhatsAppMessage(name, message);
+
+            // Send SMS message (You would need Twilio or another service for this)
+            sendSMS(name, message);
+        });
+
+        // Function to send an email using EmailJS (you need to set up an account with EmailJS)
+        function sendEmail(name, email, message) {
+            // You would need to add your EmailJS account details here
+            console.log('Sending email to:', email);
+            alert('Email sent to ' + email);
+        }
+
+        // Function to send a WhatsApp message (Note: Open WhatsApp Web with pre-filled message)
+        function sendWhatsAppMessage(name, message) {
+            const phoneNumber = '+919486478955'; // Replace with your number
+            const encodedMessage = encodeURIComponent(`Hello, my name is ${name}. ${message}`);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Function to send SMS using a backend service like Twilio
+        function sendSMS(name, message) {
+            // This would normally trigger a backend API to send the SMS
+            console.log('Sending SMS to phone number.');
+            alert('SMS sent to +91 9486478955');
+        }
+    </script>
+</body>
+</html>

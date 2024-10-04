@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Grid Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: #e0e0e0;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .header nav ul li {
+            display: inline;
+        }
+
+        .header nav ul li a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+
+        .header nav ul li a:hover {
+            color: #ffffff;
+        }
+
+        /* Landscape Image Section with 3:2 Ratio */
+        .landscape-container {
+            width: 100%;
+            padding-top: 66.67%; /* 3:2 aspect ratio (height = 2 / 3 * width) */
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .landscape-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Grid Gallery */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Always 3 images per row */
+            gap: 15px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .gallery-item img {
+    width: 100%;
+    height: 200px; /* Set a fixed height for all images */
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        /* Modal Preview for Images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            width: 60%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .modal img:hover {
+            cursor: pointer;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            /* Even on smaller screens, keep 3 images per row */
+            .gallery-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Keep 3 per row on smaller screens */
+            .gallery-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Maintain 3 images per row even on mobile */
+            .gallery-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .modal img {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">Portfolio</div>
+       
+    </header>
+
+    <!-- Landscape Image Section -->
+    <div class="landscape-container">
+        <img src="images\1726925189772.jpg" alt="Landscape Image">
+    </div>
+
+    <!-- Grid Gallery Section -->
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="images\1725175619049.jpg" alt="Image 1" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1725801621452 (1).jpg" alt="Image 2" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1725179501766 (1).jpg" alt="Image 3" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1725179053993 (1).jpg" alt="Image 4" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1727951681060.jpg" alt="Image 5" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1725179821615.jpg" alt="Image 6" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726172634445.jpg" alt="Image 7" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1728044242820.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726077154823 (1).jpg" alt="Image 5" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1722772242924-01 (2).jpg" alt="Image 6" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1720786392047-01.jpg" alt="Image 7" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1722772025430 (2).jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726313877645 (1).jpg" alt="Image 7" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726303715915 (2).jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726311454684.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1727953057055.jpg" alt="Image 7" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726312450378 (1).jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1727953908560.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1727953248795 (1).jpg" alt="Image 7" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726309799368.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1727952158697.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726924819972.jpg" alt="Image 7" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726417835263 (1).jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726924866136.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726925430055.jpg" alt="Image 7" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726926004833.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1728042928532.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726925404675.jpg" alt="Image 7" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1728043106179.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726925337767.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726924701101.jpg" alt="Image 7" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726924721844.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726924653772.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726925607441.jpg" alt="Image 7" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726925265287.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726925366052.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726925127413.jpg" alt="Image 7" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726925755790 (1).jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726925316903.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1719739659820.jpg" alt="Image 7" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726924743417.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+        <div class="gallery-item">
+            <img src="images\1726926558324.jpg" alt="Image 8" onclick="openModal(this)">
+        </div>
+       
+    </div>
+
+    <!-- Modal for Image Preview -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img id="modal-image" src="" alt="Preview">
+    </div>
+
+    <script>
+        // Open Modal Function
+        function openModal(element) {
+            document.getElementById('modal').style.display = 'flex';
+            document.getElementById('modal-image').src = element.src;
+        }
+
+        // Close Modal Function
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naresh - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            height: 100vh;
+            background-color: #1c1c1c;
+            position: relative;
+        }
+
+        /* Background Image Division */
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background-image: url("images/1726172634445.jpg");
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        nav {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            background-color: rgba(11, 11, 11, 0.8);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            margin-bottom: 40px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav h1 {
+            font-size: 36px;
+            color: #f1c40f;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 22px;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+            transform: scale(1.1);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            width: 90%;
+            margin: 40px auto 40px auto;
+            padding: 30px;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+
+        .text-section {
+            width: 60%;
+            padding: 10px;
+            margin-left: 20px;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        .text-section h2 {
+            font-size: 35px;
+            color: #0b0b0a;
+            font-style: italic;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+
+        .text-section h6 {
+            font-size: 16px;
+            color: #0b0b0a;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .text-section p {
+            margin-top: 20px;
+        }
+
+        .image-section {
+            width: 35%;
+            text-align: center;
+            position: relative;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        /* Transition for appearance and skills */
+        .appearance, .skills {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 18px;
+                margin: 0 10px;
+            }
+
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .text-section,
+            .image-section {
+                width: 100%;
+                padding: 15px;
+                margin-left: 0;
+            }
+
+            .text-section p {
+                margin-top: 10px;
+            }
+
+            .image-section img {
+                margin-top: 20px;
+            }
+        }
+
+        .e {
+            color: #0b0b0a;
+        }
+
+        /* Appearance section styling */
+        .appearance {
+            color: #0b0b0a;
+            margin-top: 30px;
+            font-size: 16px;
+            text-align: right;
+        }
+
+        .skills {
+            margin-top: 20px;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Image Division -->
+    <div class="background-image"></div>
+
+    <!-- Header -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Body -->
+    <div class="container">
+        <!-- Content Section -->
+        <div class="text-section">
+            <center>
+                <h2 class="name">Naresh</h2>
+                <h6 class="model">Model</h6>
+                <p>
+                    I'm Naresh, 21 years old, based in Chennai.<br>
+                    Doing my Bachelor of Physiotherapy at Chennai.<br>
+                    My hobbies include trekking, gymming, motorcycle touring, movies, martial arts.<br>
+                    Being a passionate model, I'm excited to explore this opportunity with you.
+                </p>
+                <h3 class="e">𝙇𝙤𝙤𝙠𝙞𝙣𝙜 𝙛𝙤𝙧𝙬𝙖𝙧𝙙 𝙩𝙤 𝙮𝙤𝙪𝙧 𝙧𝙚𝙨𝙥𝙤𝙣𝙨𝙚</h3>
+            </center>
+            <div class="image-section">
+                <img src="images\1726172634445.jpg" alt="Model Image">
+            </div>
+            <div class="appearance">
+                <h3>𝘼𝙥𝙥𝙚𝙖𝙧𝙖𝙣𝙘𝙚 :</h3>
+                <p><strong>Height:</strong> 5'9"</p>
+                <p><strong>Weight:</strong> 65 kg</p>
+                <p><strong>Hair Colour:</strong> Black</p>
+                <p><strong>Eye Colour:</strong> Black</p>
+                <p><strong>Skin Tone:</strong> Fair</p>
+                <p><strong>Body Type:</strong> Athletic / Fitness</p>
+            </div>
+            
+          
+        </div>
+
+        <!-- Image Section -->
+    </div>
+
+    <script>
+        // Detect when content is scrolled into view
+        const appearance = document.querySelector('.appearance');
+        const skills = document.querySelector('.skills');
+
+        function handleScroll() {
+            const contentPosition = appearance.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight;
+
+            if (contentPosition < screenPosition) {
+                appearance.classList.add('visible');
+                skills.classList.add('visible');
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+    </script>
+
+</body>
+</html>
